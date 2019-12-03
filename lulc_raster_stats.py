@@ -60,7 +60,8 @@ if __name__ == '__main__':
         args.other_raster)
     pygeoprocessing.align_and_resize_raster_stack(
         base_raster_path_list, aligned_rater_path_list, ['mode', 'near'],
-        other_raster_info['pixel_size'], 'intersection')
+        other_raster_info['pixel_size'], 'intersection',
+        target_sr_wkt=other_raster_info['projection'])
     lulc_nodata = pygeoprocessing.get_raster_info(
         args.landcover_raster)['nodata']
     unique_values = get_unique_values(args.landcover_raster)
